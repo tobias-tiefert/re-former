@@ -36,6 +36,8 @@ Style/EmptyMethod:
 Style/Documentation:
   Enabled: false
 
+Style/SymbolArray:
+  Enabled: false
 
 # Overwrite or add rules to create your own house style
 #
