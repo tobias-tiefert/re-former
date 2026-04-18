@@ -1,0 +1,12 @@
+<h1> <%= @user.username %></h1>
+<%= link_to "Back", users_path %>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, 'dein name' %>
+  <%= form.text_field :username %>
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+  <%= form.submit %>
+<% end %>
+
+<%= button_to "Delete", @user, method: :delete, data: { turbo_confirm: "Are you sure?" } %>

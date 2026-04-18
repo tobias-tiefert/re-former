@@ -1,14 +1,28 @@
-<form action="/users" method="post" accept-charset="UTF-8" >
+<%= link_to "Back", users_path %>
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "How do you want to be called?" %>
+  <%= form.text_field :username, options = {placeholder: 'Max'} %>
+  <%= form.label :email %>
+  <%= form.email_field :email, options = {placeholder: 'max@mustermann.de'} %>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <%= form.submit %>
+<% end %>
+
+
+<!--
+<form action="/users" method="post" accept-charset="UTF-8" data-turbo="false" >
   <input
   type="hidden"
   name="authenticity_token"
   value="<%= form_authenticity_token %>"
   >
   <label for="username">Username</label>
-  <input type="text" name="user[username]" id="username" autocomplete="off">
+  <input type="text" name="user[username]" id="username" value="<%= @user&.username %>" autocomplete="off">
   <label for="email">Email adress</label>
-  <input type="email" name="user[email]" id="email" autocomplete="off">
+  <input type="email" name="user[email]" value="<%= @user&.email %>" id="email" autocomplete="off">
   <label for="password">Password</label>
   <input type="password" name="user[password]" id="password" autocomplete="off">
   <input type="submit" value="Submit form">
 </form>
+-->
