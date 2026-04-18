@@ -2,6 +2,9 @@
 <%= link_to "Back", users_path %>
 
 <%= form_with model: @user do |form| %>
+  <% if form.object.errors.any? %>
+      <p class="error"><%= form.object.errors.full_messages.first %></p>
+  <% end %>
   <%= form.label :username, 'dein name' %>
   <%= form.text_field :username %>
   <%= form.label :email %>
